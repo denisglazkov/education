@@ -14,7 +14,7 @@ namespace ConsoleApplicationNet
         public static void Main(string[] args)
         {
             int a;
-            Console.WriteLine("enter number 1");
+            Console.WriteLine("enter number 2");
             a = Convert.ToInt32(Console.ReadLine());
 
             switch (a)
