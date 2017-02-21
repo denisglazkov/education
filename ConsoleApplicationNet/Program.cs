@@ -10,7 +10,99 @@ namespace ConsoleApplicationNet
 {
      class Program
     {
-        //lesson order array
+        //lesson
+        public static void Main(string[] args)
+        {
+            int a;
+            Console.WriteLine("enter number 1");
+            a = Convert.ToInt32(Console.ReadLine());
+
+            switch (a)
+            {
+                case 0:
+                    Console.WriteLine("0");
+                    break;
+            }
+        }
+        //lesson 8.3
+
+//        public static int GetFibanachiNumber(int num)
+//        {
+//            int[] a = new int[num];
+//            a[0] = 1;
+//            a[1] = 1;
+//            int n = 0;
+//            for (int i = 2; i < num ; i++)
+//            {
+//                a[i] = a[i - 2] + a[i - 1];
+//                n = a[i];
+//            }
+//
+//            return n;
+//        }
+//
+//        public static void Main(string[] args)
+//        {
+//            int w = 0;
+//            Console.WriteLine("Write the number");
+//            w = Convert.ToInt32(Console.ReadLine());
+//            Console.WriteLine(GetFibanachiNumber(w));
+//        }
+
+        //lesson 8.2
+
+//        public static int GetMaxNumber(int[] array)
+//        {
+//            int max;
+//            max = array[0];
+//
+//            for (int i = 0; i < array.Length; i++)
+//            {
+//                if (max < array[i])
+//                {
+//                    max = array[i];
+//                }
+//            }
+//            return max;
+//        }
+//
+//        public static void Main(string[] args)
+//        {
+//            Random b = new Random();
+//            int[] a = new int[10];
+//
+//            for (int i = 0; i < 10; i++)
+//            {
+//                a[i] = b.Next(-10, 10);
+//                Console.WriteLine(a[i]);
+//            }
+//            Console.WriteLine("/nmax = "+ GetMaxNumber(a));
+//        }
+
+
+
+        //lesson 8.1
+
+//        public static void GetReversNumbers(int[] array)
+//        {
+//            for (int i = 0; i < 10; i++)
+//            {
+//                array[i] = array[i] * (-1);
+//            }
+//        }
+//
+//        public static void Main(string[] args)
+//        {
+//            Random b = new Random();
+//            int[] a = new int[10];
+//
+//            for (int i = 0; i < 10; i++)
+//            {
+//                a[i] = b.Next(-10, 10);
+//            }
+//        }
+
+        //lesson 8 order array
 
 //        public static void Main(string[] args)
 //        {
