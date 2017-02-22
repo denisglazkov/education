@@ -10,25 +10,80 @@ namespace ConsoleApplicationNet
 {
      class Program
     {
-        //lesson 13
-        class Automobile
-        {
-            private int number;
-            public string carType;
-            protected int wheel;
-        }
+        // lesson order array 3,2
 
         public static void Main(string[] args)
         {
-            Automobile automobile1 = new Automobile();
-            Automobile automobile2 = new Automobile();
+            int[,] array = new int[3,2];
+            int temp = array[0, 0];
+            int k = 0;
+            Random r = new Random();
 
-            automobile1.carType = Console.ReadLine();
-            automobile2.carType = "Ferrari";
+            for (int i = 0; i < array.Rank; i++)
+            {
+                for (int j = 0; j < array.Length/array.Rank; j++)
+                {
+                    array[j, i] = r.Next(-10, 10);
+                }
+            }
 
-            Console.WriteLine(automobile1.carType+ "       "+ automobile2.carType);
+            for (int i = 0; i < array.Length/array.Rank; i++)
+            {
+                Console.WriteLine(array[i,0]+ "||"+ array[i,1]);
+            }
+
+            Console.WriteLine("\nNew");
+            Console.WriteLine(array.Length);
+
+            for (int n = 0; n < array.Rank; n++)
+            {
+                k = 0;
+                for (int i = 0; i < array.Length/array.Rank; i++)
+                {
+                    if (array[i,n] < 0)
+                    {
+                        temp = array[i,n];
+                        for (int j = i; k < j; j--)
+                        {
+                            array[j,n] = array[j - 1,n];
+                        }
+                        array[k,n] = temp;
+                        k++;
+                    }
+                }
+            }
+
+
+            for (int i = 0; i < array.Length/array.Rank; i++)
+            {
+               Console.WriteLine(array[i,0]+ "||"+ array[i,1]);
+            }
+
+
 
         }
+
+
+        //lesson 13
+//        class Automobile
+//        {
+//            private int number;
+//            public string carType;
+//            protected int wheel;
+//        }
+//
+//        public static void Main(string[] args)
+//        {
+//            Automobile automobile1 = new Automobile();
+//            Automobile automobile2 = new Automobile();
+//
+//            automobile1.carType = Console.ReadLine();
+//            automobile2.carType = "Ferrari";
+//
+//            Console.WriteLine(automobile1.carType+ "       "+ automobile2.carType);
+//
+//        }
+
         //lesson 8.3
 
 //        public static int GetFibanachiNumber(int num)
