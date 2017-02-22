@@ -10,19 +10,24 @@ namespace ConsoleApplicationNet
 {
      class Program
     {
-        //lesson
+        //lesson 13
+        class Automobile
+        {
+            private int number;
+            public string carType;
+            protected int wheel;
+        }
+
         public static void Main(string[] args)
         {
-            int a;
-            Console.WriteLine("enter number 2");
-            a = Convert.ToInt32(Console.ReadLine());
+            Automobile automobile1 = new Automobile();
+            Automobile automobile2 = new Automobile();
 
-            switch (a)
-            {
-                case 0:
-                    Console.WriteLine("0");
-                    break;
-            }
+            automobile1.carType = Console.ReadLine();
+            automobile2.carType = "Ferrari";
+
+            Console.WriteLine(automobile1.carType+ "       "+ automobile2.carType);
+
         }
         //lesson 8.3
 
