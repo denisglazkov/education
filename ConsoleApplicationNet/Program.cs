@@ -8,60 +8,156 @@ using System.Security.Cryptography;
 
 namespace ConsoleApplicationNet
 {
-     class Program
-    {
+
+
+
+
+
+    //lesson 16 Свойства в Си-шарп. Аксессоры get и set. Автоматические свойства
+
+//    class TV
+//    {
+//        private int sound;
+//
+//        public int Sound
+//        {
+//            get { return sound; }
+//            set
+//            {
+//                if (value < 9)
+//                {
+//                    sound = 9;
+//                }
+//                else
+//                {
+//                    if (value > 100)
+//                    {
+//                        sound = 100;
+//                    }
+//                    else
+//                    {
+//                        sound = value;
+//                    }
+//                }
+//
+//            }
+//        }
+//    }
+//
+//    class Program
+//    {
+//        public static void Main(string[] args)
+//        {
+//            int a;
+//            TV newTV = new TV();
+//            //a = Convert.ToInt32(Console.ReadLine());
+//            newTV.Sound = 99;
+//            Console.WriteLine(newTV.Sound);
+//        }
+//    }
+
+
+//    lesson 15 Конструкторы в Си-шарп. Указатель this
+
+//    class Student
+//    {
+//        private string name;
+//        private int course;
+//        private int stepuxa;
+//
+//        public Student()
+//        {
+//            name = "heregoznaet";
+//            stepuxa = 1000000;
+//            course = 5;
+//        }
+//
+//        public Student(string name, int stepuxa, int course)
+//        {
+//            this.name = name;
+//            this.stepuxa = stepuxa;
+//            this.course = course;
+//        }
+//    }
+//
+//    class Program
+//    {
+//        public static void Main(string[] args)
+//        {
+//            Student newStudent1 = new Student("Denis", 5000, 3);
+//            Student newStudent2 = new Student();
+//        }
+//    }
+
+
+
+
+
+
+
+    //чтоб заработало не заюудь раскоментить самые нижние скобки
+//     class Program
+//    {
+
+
+
+
+
         // lesson order array 3,2
 
-        public static void Main(string[] args)
-        {
-            int[,] array = new int[3,2];
-            int temp = array[0, 0];
-            int k = 0;
-            Random r = new Random();
-
-            for (int i = 0; i < array.Rank; i++)
-            {
-                for (int j = 0; j < array.Length/array.Rank; j++)
-                {
-                    array[j, i] = r.Next(-10, 10);
-                }
-            }
-
-            for (int i = 0; i < array.Length/array.Rank; i++)
-            {
-                Console.WriteLine(array[i,0]+ "||"+ array[i,1]);
-            }
-
-            Console.WriteLine("\nNew");
-            Console.WriteLine(array.Length);
-
-            for (int n = 0; n < array.Rank; n++)
-            {
-                k = 0;
-                for (int i = 0; i < array.Length/array.Rank; i++)
-                {
-                    if (array[i,n] < 0)
-                    {
-                        temp = array[i,n];
-                        for (int j = i; k < j; j--)
-                        {
-                            array[j,n] = array[j - 1,n];
-                        }
-                        array[k,n] = temp;
-                        k++;
-                    }
-                }
-            }
-
-
-            for (int i = 0; i < array.Length/array.Rank; i++)
-            {
-               Console.WriteLine(array[i,0]+ "||"+ array[i,1]);
-            }
-
-
-
-        }
+//        public static void Main(string[] args)
+//        {
+//            int[,] array = new int[15,15];
+//            int temp = array[0, 0];
+//            int k = 0;
+//            Random r = new Random();
+//
+//            for (int i = 0; i < array.GetLength(1); i++)
+//            {
+//                for (int j = 0; j < array.GetLength(0); j++)
+//                {
+//                    array[j, i] = r.Next(-10, 10);
+//                }
+//            }
+//
+//            for (int j = 0; j < array.GetLength(0); j++)
+//            {
+//                for (int i = 0; i < array.GetLength(1); i++)
+//                {
+//                    Console.Write(array[j,i]+ "||");
+//                }
+//                Console.Write("\n");
+//            }
+//
+//            Console.WriteLine("\nNew");
+//
+//            for (int n = 0; n < array.GetLength(1); n++)
+//            {
+//                k = 0;
+//                for (int i = 0; i < array.GetLength(0); i++)
+//                {
+//                    if (array[i,n] < 0)
+//                    {
+//                        temp = array[i,n];
+//                        for (int j = i; k < j; j--)
+//                        {
+//                            array[j,n] = array[j - 1,n];
+//                        }
+//                        array[k,n] = temp;
+//                        k++;
+//                    }
+//                }
+//            }
+//
+//            for (int j = 0; j < array.GetLength(0); j++)
+//            {
+//                for (int i = 0; i < array.GetLength(1); i++)
+//                {
+//                    Console.Write(array[j,i]+ "||");
+//                }
+//                Console.Write("\n");
+//            }
+//        }
 
 
         //lesson 13
@@ -354,4 +450,4 @@ namespace ConsoleApplicationNet
 //            Console.ReadKey();
 //        }
     }
-}
+//}
