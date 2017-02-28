@@ -4,54 +4,82 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
+using System.CodeDom;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace LineRegretion
 {
-
-    internal class Program
+    public class Point
     {
-        public static int Summ(int[,] s)
-        {
-            int sum1 = 0;
-            foreach (int d in s)
-            {
-                sum1 += d;
-            }
-            return sum1;
-        }
+        public int x { get; set; }
+        public int y { get; set; }
+    }
 
-        public static int Pow(int r)
-        {
-            int y;
-            y = Math.Pow(r, 2);
-            return y;
-        }
-
+    class Program
+    {
         public static void Main(string[] args)
         {
-            int[,] a = new int[14, 2]
+
+            string fileObj = File.ReadAllText(@"/Users/denisglazkov/Downloads/test (1).json");
+            JArray arrObj = JArray.Parse(fileObj);
+            List<Point> list = arrObj.ToObject<List<Point>>();
+            int sumX = 0;
+            int sumY = 0;
+            double sigmaTop = 0;
+            double sigma2 = 0;
+            double x = 0;
+            double y = 0;
+            double sigma = 0;
+            double a;
+            double b;
+            int sumProisv = 0;
+
+
+            foreach ( Point f in list)
             {
-                {100, 70}, {105, 79}, {108, 85}, {113, 84}, {118, 85}, {118, 85}, {110, 96}, {115, 99}, {119, 100},
-                {118, 98}, {120, 99}, {124, 102}, {129, 105}, {132, 112}
-            };
+                sumX = sumX + f.x;
+                sumY = sumY + f.y;
+                sumProisv = f.x * f.y + sumProisv;
+            }
+
+            x = (double)sumX / list.Count;
+            y = (double)sumY / list.Count;
 
 
+            foreach (Point z in list)
+            {
+                sigmaTop = Math.Pow((z.x - x), 2) + sigmaTop;
+            }
 
-            Console.WriteLine(Summ(a));
+            sigma2 = sigmaTop / list.Count;
+            sigma = Math.Sqrt(sigma2);
 
-            Console.WriteLine(Pow(Summ(a)));
+            b =((double)sumProisv / list.Count - x * y) / sigma2;
+            a = y - b * x;
 
-//            Console.WriteLine(Algebra.Sum(a));
+            Console.WriteLine("b - "+ b);
+            Console.WriteLine("a - "+ a);
+            Console.WriteLine("sumX "+ sumX);
+            Console.WriteLine("sumY "+ sumY);
+            Console.WriteLine("sigma "+ sigma);
+            Console.WriteLine("sigma2 "+ sigma2);
+            Console.WriteLine("sumY "+ sumY);
+            Console.WriteLine("x "+ x);
+            Console.WriteLine("y "+ y);
+            Console.WriteLine("sumProisv "+ sumProisv);
 
-
-//            StreamReader reader = new StreamReader(@"/Users/denisglazkov/Downloads/test.json");
-//            JArray arrObj = JArray.Parse("[12, 12, 23, 34]");
-//            int[] array = arrObj.ToObject<int[]>();
-            Console.WriteLine("Hello world");
-
-
+//            foreach (Point r in list)
+//            {
+//                Console.WriteLine(/*"x:"+ r.x+ ", y:"+ r.y*/r.x);
+//            }
+//            Console.WriteLine("Hello World");
         }
+
     }
 }
