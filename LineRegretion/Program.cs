@@ -25,8 +25,7 @@ namespace LineRegretion
     {
         public static void Main(string[] args)
         {
-
-            string fileObj = File.ReadAllText(@"/Users/denisglazkov/Downloads/test (1).json");
+            string fileObj = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"../../test (1).json");
             JArray arrObj = JArray.Parse(fileObj);
             List<Point> list = arrObj.ToObject<List<Point>>();
             int sumX = 0;
@@ -73,6 +72,8 @@ namespace LineRegretion
             Console.WriteLine("x "+ x);
             Console.WriteLine("y "+ y);
             Console.WriteLine("sumProisv "+ sumProisv);
+
+
 
 //            foreach (Point r in list)
 //            {
