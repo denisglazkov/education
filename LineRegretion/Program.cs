@@ -37,29 +37,29 @@ namespace LineRegretion
             double sigma = 0;
             double a;
             double b;
-            int sumProisv = 0;
+            double sumProisv = 0;
 
 
-            foreach ( Point f in list)
+            foreach ( Point point in list)
             {
-                sumX = sumX + f.x;
-                sumY = sumY + f.y;
-                sumProisv = f.x * f.y + sumProisv;
+                sumX += point.x;
+                sumY += point.y;
+                sumProisv += point.x * point.y;
             }
 
             x = (double)sumX / list.Count;
             y = (double)sumY / list.Count;
 
 
-            foreach (Point z in list)
+            foreach (Point point in list)
             {
-                sigmaTop = Math.Pow((z.x - x), 2) + sigmaTop;
+                sigmaTop += Math.Pow((point.x - x), 2);
             }
 
             sigma2 = sigmaTop / list.Count;
             sigma = Math.Sqrt(sigma2);
 
-            b =((double)sumProisv / list.Count - x * y) / sigma2;
+            b =(sumProisv / list.Count - x * y) / sigma2;
             a = y - b * x;
 
             Console.WriteLine("b - "+ b);
