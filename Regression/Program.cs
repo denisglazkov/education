@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Windows.Forms;
 
 namespace Regression
 {
@@ -27,6 +28,9 @@ namespace Regression
 
             Console.WriteLine("Polinomial A "+ initPolnomial.a);
             Console.WriteLine("Polinomial B "+ initPolnomial.b);
+
+            Chart
+
         }
     }
 }
